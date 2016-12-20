@@ -1,0 +1,2 @@
+Amanda Neelapriyantha, Jiajun Luo (Period 6)
+Our project proposal is a randomly generated meal planner. It will have a vegetarian and vegan option. It will have user accounts, and will record information such as height and weight to also calculate daily calorie needs and weight loss requirements.
