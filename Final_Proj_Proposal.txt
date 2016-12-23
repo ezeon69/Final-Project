@@ -1,2 +1,4 @@
 Amanda Neelapriyantha, Jiajun Luo (Period 6)
-Our project proposal is a randomly generated meal planner. It will have a vegetarian and vegan option. It will have user accounts, and will record information such as height and weight to also calculate daily calorie needs and weight loss requirements.
+Our project proposal is a meal tracker. We would have the user input foods and nutrition value for each meal of the day.
+They can look back at their nutrition value and see their choices influencing macros and food groups.
+
