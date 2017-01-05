@@ -1,13 +1,13 @@
 import java.io.*;
 public class MealTracker{
 
-    private String date;
-    private String meal;
-    private String food;
-    private int cal;
-    private int protein;
-    private int carb;
-    private int fat;
+    private String Date;
+    private String MealType;
+    private String Meal;
+    private int Cal;
+    private int Protein;
+    private int Carb;
+    private int Fat;
 
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
 	if (args.length == 1){
@@ -22,7 +22,7 @@ public class MealTracker{
 	    System.out.println("3");
 	}
 	else{
-	    System.out.println("Usage: java MealTracker [date]");
+	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
 	}
 	enter("Breakfast", "Cereal");
 	enter("Lunch", "Sandwich");
