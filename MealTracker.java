@@ -1,5 +1,6 @@
 import java.io.*;
 public class MealTracker{
+
     private String test;
     private String Date;
     private String MealType;
