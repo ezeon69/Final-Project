@@ -1,6 +1,6 @@
 import java.io.*;
 public class MealTracker{
-
+    private String test;
     private String Date;
     private String MealType;
     private String Meal;
@@ -18,7 +18,7 @@ public class MealTracker{
 	    Protein = args[4];
 	    Carb = args[5];
 	    Fat = args[6];
-	    
+	    enter 
 	}
 	else if (args.length == 1){
 	    if (args[0].equals("total")){
