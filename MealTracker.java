@@ -9,6 +9,16 @@ public class MealTracker{
     private static String Carb;
     private static String Fat;
 
+    public MealTracker(String date, String mealType, String meal, String cal, String protein, String carb, String fat){
+	Date = date;
+	MealType = mealType;
+	Meal = meal;
+	Cal = cal;
+	Protein = protein;
+	Carb = carb;
+	Fat = fat;
+    }
+
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
 	if (args.length == 7){
 	    Date = args[0];
