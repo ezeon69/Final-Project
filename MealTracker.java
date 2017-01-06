@@ -10,7 +10,17 @@ public class MealTracker{
     private int Fat;
 
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
-	if (args.length == 1){
+	if (args.length == 7){
+	    Date = args[0];
+	    MealType = args[1];
+	    Meal = args[2];
+	    Cal = args[3];
+	    Protein = args[4];
+	    Carb = args[5];
+	    Fat = args[6];
+	    
+	}
+	else if (args.length == 1){
 	    if (args[0].equals("total")){
 		System.out.println("test");
 	    }
