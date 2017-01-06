@@ -1,13 +1,13 @@
 import java.io.*;
 public class MealTracker{
 
-    private String Date;
-    private String MealType;
-    private String Meal;
-    private int Cal;
-    private int Protein;
-    private int Carb;
-    private int Fat;
+    private static String Date;
+    private static String MealType;
+    private static String Meal;
+    private static String Cal;
+    private static String Protein;
+    private static String Carb;
+    private static String Fat;
 
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
 	if (args.length == 7){
@@ -18,7 +18,7 @@ public class MealTracker{
 	    Protein = args[4];
 	    Carb = args[5];
 	    Fat = args[6];
-	    
+	    enter(Date, MealType, Meal, Cal, Protein, Carb, Fat);
 	}
 	else if (args.length == 1){
 	    if (args[0].equals("total")){
@@ -34,17 +34,14 @@ public class MealTracker{
 	else{
 	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
 	}
-	enter("Breakfast", "Cereal");
-	enter("Lunch", "Sandwich");
     }
 
-    public static void enter(String mealType, String meal) throws IOException{
+    public static void enter(String date, String mealType, String meal, String cal, String protein, String carb, String fat) throws IOException{
 	FileWriter fw = new FileWriter("Meals.csv", true);
 	if(mealType.equals("Breakfast")){
-	    fw.append("date" + "\n");
+	    fw.append(date + "\n");
 	}
-	//String info = nutritionalInfo(mealType);
-	fw.append(mealType + "," + meal + "," + "info");
+	fw.append(mealType + "," + meal + "," + cal + "," + protein + "," + carb + "," + fat + "\n");
 	fw.flush();
 	fw.close();
 	}
