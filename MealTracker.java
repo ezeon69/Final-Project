@@ -28,6 +28,7 @@ public class MealTracker{
 	    Protein = args[4];
 	    Carb = args[5];
 	    Fat = args[6];
+	    MealTracker(args[0],args[1],args[2],args[3],args[4],args[5],args[6]);
 	    enter(Date, MealType, Meal, Cal, Protein, Carb, Fat);
 	}
 	else if (args.length == 1){
