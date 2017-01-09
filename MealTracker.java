@@ -18,7 +18,8 @@ public class MealTracker{
 	    Protein = args[4];
 	    Carb = args[5];
 	    Fat = args[6];
-	    enter(Date, MealType, Meal, Cal, Protein, Carb, Fat);
+	    mealAdd(Date, MealType, Meal, Cal, Protein, Carb, Fat);
+            System.out.println("Successfully added meal.");
 	}
 	else if (args.length == 1){
 	    if (args[0].equals("total")){
@@ -36,7 +37,7 @@ public class MealTracker{
 	}
     }
 
-    public static void enter(String date, String mealType, String meal, String cal, String protein, String carb, String fat) throws IOException{
+    public static void mealAdd(String date, String mealType, String meal, String cal, String protein, String carb, String fat) throws IOException{
 	FileWriter fw = new FileWriter("Meals.csv", true);
 	if(mealType.equals("Breakfast")){
 	    fw.append(date + "\n");
