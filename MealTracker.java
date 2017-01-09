@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.*;
+
 public class MealTracker{
 
     private static String Date;
@@ -34,6 +36,7 @@ public class MealTracker{
 	}
 	else{
 	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
+	    System.out.println(readFile());
 	}
     }
 
@@ -45,6 +48,12 @@ public class MealTracker{
 	fw.append(mealType + "," + meal + "," + cal + "," + protein + "," + carb + "," + fat + "\n");
 	fw.flush();
 	fw.close();
-	}
+    }
 
+    public static String readFile() throws FileNotFoundException{
+    String text = new Scanner( new File("Meals.csv") ).useDelimiter("\\A").next();
+    return text;
+    }
+    
+    
 }
