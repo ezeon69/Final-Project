@@ -1,10 +1,7 @@
 import java.io.*;
-<<<<<<< HEAD
 import java.util.Scanner;
-=======
 import java.util.*;
 
->>>>>>> master
 public class MealTracker{
 
     private static String Date;
@@ -14,39 +11,26 @@ public class MealTracker{
     private static String Protein;
     private static String Carb;
     private static String Fat;
-<<<<<<< HEAD
     private static String[]total;
 
-=======
-    
->>>>>>> master
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
 	Scanner sc = new Scanner(System.in);
-	System.out.print("Hello, welcome to the Meal Tracker. Is this your first meal of the day? (Answer yes/no)");
-	String answer = sc.next();
-	if(answer.equals("yes")){
-	    System.out.println("What is today's date?");
-	    Date = sc.next();
-	}
-	if(answer.equals("no")){
-	    System.out.println("Is this your last meal of the day? (Answer yes/no)");
-	    String ans = sc.next();
-	    if(ans.equals("yes")){
-	    }
-	    if(ans.equals("no")){
-	    }
-	}
-	System.out.println("What is the name of the meal you want to add?");
-	MealType = sc.next();
-	    MealType = args[1];
-	    Meal = args[2];
+	if(args.length = 0){
+	    System.out.print("Hello, welcome to the Meal Tracker. What is the date of today?");
+	    Data = sc.next();
+	    System.out.println("What is the type of the meal you want to add? (Breakfast, Lunch, or Dinner)");
+	    MealType = sc.next();
+	    System.out.println("What is the meal you want to add?");
+	    Meal = sc.next;
+	    System.out.println("How many calories are in your meal?");
 	    Cal = args[3];
+	    System.out.println("How much protein is in your meal?");
 	    Protein = args[4];
+	    System.out.println("How many grams of carbohydrates are in your meal?");
 	    Carb = args[5];
+	    System.out.println("How many grams of fat are in your meal?");
 	    Fat = args[6];
 	    mealAdd(Date, MealType, Meal, Cal, Protein, Carb, Fat);
-<<<<<<< HEAD
-=======
             System.out.println("Successfully added meal.");
 	}
 	else if (args.length == 1){
@@ -59,7 +43,6 @@ public class MealTracker{
 	}
 	else if (args.length == 3){
 	    System.out.println("3");
->>>>>>> master
 	}
 	else{
 	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
