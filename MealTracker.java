@@ -36,24 +36,25 @@ public class MealTracker{
 	}
 	else{
 	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
-	    System.out.println(readFile());
+	    System.out.println(Arrays.deepToString(readFile()));
 	}
     }
 
     public static void mealAdd(String date, String mealType, String meal, String cal, String protein, String carb, String fat) throws IOException{
 	FileWriter fw = new FileWriter("Meals.csv", true);
-	if(mealType.equals("Breakfast")){
-	    fw.append(date + "\n");
-	}
-	fw.append(mealType + "," + meal + "," + cal + "," + protein + "," + carb + "," + fat + "\n");
+	fw.append(date + "," + mealType + "," + meal + "," + cal + "," + protein + "," + carb + "," + fat + "\n");
 	fw.flush();
 	fw.close();
     }
 
-    public static String readFile() throws FileNotFoundException{
-    String text = new Scanner( new File("Meals.csv") ).useDelimiter("\\A").next();
-    return text;
+    public static String[][] readFile() throws FileNotFoundException{
+	String text = new Scanner( new File("Meals.csv") ).useDelimiter("\\A").next(); //file to string
+    String lines[] = text.split("\n"); //splits string by csv
+    String[][] linesCsv = new String[lines.length][];
+    for (int i=0; i<lines.length; i++) {
+        linesCsv[i] = lines[i].split(",");
     }
-    
+    return linesCsv;
+    }
     
 }
