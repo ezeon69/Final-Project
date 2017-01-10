@@ -57,14 +57,51 @@ public class MealTracker{
     return meals;
     }
 
-
-
     public String totalCal(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
 	while (counter < readFile().length){
 	    if ((readFile()[counter][0]) == date){
-		total += Integer.parseInt(readFile()[counter][0]);
+		total += Integer.parseInt(readFile()[counter][3]);
+		counter++;
+	    }
+	    counter++;
+	}
+	return Integer.toString(total);
+    }
+
+    public String totalPro(String date) throws FileNotFoundException{
+	int total = 0;
+	int counter = 0;
+	while (counter < readFile().length){
+	    if ((readFile()[counter][0]) == date){
+		total += Integer.parseInt(readFile()[counter][4]);
+		counter++;
+	    }
+	    counter++;
+	}
+	return Integer.toString(total);
+    }
+
+    public String totalCarb(String date) throws FileNotFoundException{
+	int total = 0;
+	int counter = 0;
+	while (counter < readFile().length){
+	    if ((readFile()[counter][0]) == date){
+		total += Integer.parseInt(readFile()[counter][5]);
+		counter++;
+	    }
+	    counter++;
+	}
+	return Integer.toString(total);
+    }
+
+    public String totalFat(String date) throws FileNotFoundException{
+	int total = 0;
+	int counter = 0;
+	while (counter < readFile().length){
+	    if ((readFile()[counter][0]) == date){
+		total += Integer.parseInt(readFile()[counter][6]);
 		counter++;
 	    }
 	    counter++;
