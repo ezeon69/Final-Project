@@ -10,7 +10,7 @@ public class MealTracker{
     private static String Protein;
     private static String Carb;
     private static String Fat;
-
+    
     public static void main(String[]args) throws IOException{ //either prompt them to add one by one or force them to enter all arguments
 	if (args.length == 7){
 	    Date = args[0];
@@ -48,13 +48,27 @@ public class MealTracker{
     }
 
     public static String[][] readFile() throws FileNotFoundException{
-	String text = new Scanner( new File("Meals.csv") ).useDelimiter("\\A").next(); //file to string
-    String lines[] = text.split("\n"); //splits string by csv
-    String[][] linesCsv = new String[lines.length][];
-    for (int i=0; i<lines.length; i++) {
-        linesCsv[i] = lines[i].split(",");
+	String text = new Scanner(new File("Meals.csv")).useDelimiter("\\A").next(); //file to string
+	String lines[] = text.split("\n"); //splits string by csv
+    String[][] meals = new String[lines.length][];
+    for (int counter = 0; counter < lines.length; counter++) {
+        meals[counter] = lines[counter].split(",");
     }
-    return linesCsv;
+    return meals;
     }
-    
+
+
+
+    public String totalCal(String date) throws FileNotFoundException{
+	int total = 0;
+	int counter = 0;
+	while (counter < readFile().length){
+	    if ((readFile()[counter][0]) == date){
+		total += Integer.parseInt(readFile()[counter][0]);
+		counter++;
+	    }
+	    counter++;
+	}
+	return Integer.toString(total);
+    }
 }
