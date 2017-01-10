@@ -33,19 +33,31 @@ public class MealTracker{
 	    mealAdd(Date, MealType, Meal, Cal, Protein, Carb, Fat);
             System.out.println("Successfully added meal.");
 	}
-	else if (args.length == 1){
-	    if (args[0].equals("total")){
-		System.out.println("test");
+	else if (args.length == 2){
+	    Date = args[0];
+	    if(args[1].equals("total")){
+		System.out.println(readFile());
 	    }
 	}
-	else if (args.length == 2){
-	    System.out.println("2");
-	}
 	else if (args.length == 3){
-	    System.out.println("3");
+	    Date = args[0];
+	    if(args[1].equals("total")){
+		if(args[2].equals("calories")){
+		    System.out.println(totalCal(Date));
+		}
+		else if(args[2].equals("protein")){
+		    System.out.println(totalPro(Date));
+		}
+		else if(args[2].equals("carbs")){
+		    System.out.println(totalCarb(Date));
+		}
+		else if(args[2].equals("fats")){
+		    System.out.println(totalFat(Date));
+		}
+	    }
 	}
 	else{
-	    System.out.println("Usage: java MealTracker [date][mealtype][food][calories][protein][carbs][fats]");
+	    System.out.println("Usage: java MealTracker (optional) [date][total](optional: choose one)[calories][protein][carbs][fats]");
 	    System.out.println(Arrays.deepToString(readFile()));
 	}
     }
