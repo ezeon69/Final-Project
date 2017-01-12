@@ -77,14 +77,13 @@ public class MealTracker{
 	return meals;
     }
     
-    public static int totalCal(String date) {
+    public static int totalCal(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
 	String[][]file = readFile();
 	while (counter < file.length){
 	    if ((file[counter][0]).equals(date)){
 		total += Integer.parseInt(file[counter][3]);
-		counter++;
 	    }
 	    counter++;
 	}
@@ -98,7 +97,6 @@ public class MealTracker{
 	while (counter < file.length){
 	    if ((readFile()[counter][0]).equals(date)){
 		total += Integer.parseInt(file[counter][4]);
-		counter++;
 	    }
 	    counter++;
 	}
@@ -112,7 +110,6 @@ public class MealTracker{
 	while (counter < file.length){
 	    if ((file[counter][0]).equals(date)){
 		total += Integer.parseInt(file[counter][5]);
-		counter++;
 	    }
 	    counter++;
 	}
@@ -126,7 +123,6 @@ public class MealTracker{
 	while (counter < file.length){
 	    if ((file[counter][0]).equals(date)){
 		total += Integer.parseInt(file[counter][6]);
-		counter++;
 	    }
 	    counter++;
 	}
