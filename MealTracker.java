@@ -33,10 +33,14 @@ public class MealTracker{
 	    mealAdd(Date, MealType, Meal, Cal, Protein, Carb, Fat);
             System.out.println("Successfully added meal.");
 	}
-	else if (args.length == 2){
+	else if (args.length == 1){
+	    if(args[0].equals("total")){
+		readFile();
+	    }
+	}
+	else if(args.length == 2){
 	    Date = args[0];
 	    if(args[1].equals("total")){
-		readFile();
 	    }
 	}
 	else if (args.length == 3){
@@ -75,9 +79,6 @@ public class MealTracker{
 	String[][] meals = new String[lines.length][];
 	for (int counter = 0; counter < lines.length; counter++) {
 	    meals[counter] = lines[counter].split(",");
-	    for(int count = 0; count < meals[counter].length; count ++){
-		System.out.println(meals[counter][count]);
-	    }
 	}
 	return meals;
     }
@@ -85,9 +86,10 @@ public class MealTracker{
     public static String totalCal(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
-	while (counter < readFile().length){
-	    if ((readFile()[counter][0]) == date){
-		total += Integer.parseInt(readFile()[counter][3]);
+	String[][]file = readFile();
+	while (counter < file.length){
+	    if ((file[counter][0]).equals(date)){
+		total += Integer.parseInt(file[counter][3]);
 		counter++;
 	    }
 	    counter++;
@@ -98,9 +100,10 @@ public class MealTracker{
     public static String totalPro(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
-	while (counter < readFile().length){
-	    if ((readFile()[counter][0]) == date){
-		total += Integer.parseInt(readFile()[counter][4]);
+	String[][]file = readFile();
+	while (counter < file.length){
+	    if ((readFile()[counter][0]).equals(date)){
+		total += Integer.parseInt(file[counter][4]);
 		counter++;
 	    }
 	    counter++;
@@ -111,10 +114,10 @@ public class MealTracker{
     public static String totalCarb(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
-	String[][]whatIs = readFile();
-	while (counter < readFile().length){
-	    if ((whatIs[counter][0]).equals(date)){
-		total += Integer.parseInt(whatIs[counter][5]);
+	String[][]file = readFile();
+	while (counter < file.length){
+	    if ((file[counter][0]).equals(date)){
+		total += Integer.parseInt(file[counter][5]);
 		counter++;
 	    }
 	    counter++;
@@ -125,9 +128,10 @@ public class MealTracker{
     public static String totalFat(String date) throws FileNotFoundException{
 	int total = 0;
 	int counter = 0;
-	while (counter < readFile().length){
-	    if ((readFile()[counter][0]) == date){
-		total += Integer.parseInt(readFile()[counter][6]);
+	String[][]file = readFile();
+	while (counter < file.length){
+	    if ((file[counter][0]).equals(date)){
+		total += Integer.parseInt(file[counter][6]);
 		counter++;
 	    }
 	    counter++;
