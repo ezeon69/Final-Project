@@ -35,7 +35,7 @@ public class MealTracker{
 	}
 	else if (args.length == 1){
 	    if(args[0].equals("total")){
-		readFile();
+		System.out.print(readFile());
 	    }
 	}
 	else if (args.length == 3){
