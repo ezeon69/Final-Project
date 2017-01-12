@@ -42,7 +42,7 @@ public class MealTracker{
 	    Date = args[0];
 	    if(args[1].equals("total")){
 		if(args[2].equals("calories")){
-		    System.out.println();
+		    System.out.println(totalCal(Date));
 		}
 		else if(args[2].equals("protein")){
 		    System.out.println(totalPro(Date));
@@ -57,7 +57,6 @@ public class MealTracker{
 	}
 	else{
 	    System.out.println("Usage: java MealTracker (optional) [date][total](optional: choose one)[calories][protein][carbs][fats]");
-	    System.out.println(Arrays.deepToString(readFile()));
 	}
     }
 
@@ -74,14 +73,11 @@ public class MealTracker{
 	String[][] meals = new String[lines.length][];
 	for (int counter = 0; counter < lines.length; counter++) {
 	    meals[counter] = lines[counter].split(",");
-	    for(int count = 0; count < meals[counter].length; count ++){
-		System.out.println(meals[counter][count]);
-	    }
 	}
 	return meals;
     }
     
-    public static int totalCal(String date) throws FileNotFoundException{
+    public static int totalCal(String date) {
 	int total = 0;
 	int counter = 0;
 	while (counter < readFile().length){
