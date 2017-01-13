@@ -42,16 +42,16 @@ public class MealTracker{
 	    Date = args[0];
 	    if(args[1].equals("total")){
 		if(args[2].equals("calories")){
-		    System.out.println(totalCal(Date));
+		    System.out.println(totalCal(Date) + " total calories for " + Date);
 		}
 		else if(args[2].equals("protein")){
-		    System.out.println(totalPro(Date));
+		    System.out.println(totalPro(Date) + " total grams of protein for " + Date);
 		}
 		else if(args[2].equals("carbs")){
-		    System.out.println(totalCarb(Date));
+		    System.out.println(totalCarb(Date) + " total grams of carbs for " + Date);
 		}
 		else if(args[2].equals("fats")){
-		    System.out.println(totalFat(Date));
+		    System.out.println(totalFat(Date) + " total grams of fat for " + Date);
 		}
 	    }
 	}
