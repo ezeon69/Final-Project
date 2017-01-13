@@ -3,8 +3,11 @@ Our final project lets you track the meals you eat by letting you input the info
 
 Working features/things you should test:
 java MealTracker
+
 java MealTracker total
+
 java MealTracker (date) total
+
 java MealTracker total (date) (fats/calories/carbs/protein)
 
 Unresolved bugs:
