@@ -10,6 +10,8 @@ java MealTracker (date) total
 
 java MealTracker total (date) (fats/calories/carbs/protein)
 
+java MealTracker (date) to (date)
+
 Unresolved bugs:
 
 How to compile/run:
