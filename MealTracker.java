@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 import java.util.*;
+import java.lang.*;
 
 public class MealTracker{
 
@@ -40,8 +41,13 @@ public class MealTracker{
 	    }
 	}
 	else if (args.length == 3){
-	    Date = args[0];
-	    if(args[1].equals("total")){
+	    if (args[1].equals("to")){
+		String d1 = args[0];
+		String d2 = args[2];
+		System.out.println(totalRange(d1,d2));
+	    }
+	    if (args[1].equals("total")){
+		Date = args[0];
 		if(args[2].equals("calories")){
 		    System.out.println(totalCal(Date) + " total calories for " + Date);
 		}
@@ -76,6 +82,53 @@ public class MealTracker{
 	    meals[counter] = lines[counter].split(",");
 	}
 	return meals;
+    }
+
+    public static String totalRange(String date1, String date2) throws FileNotFoundException{
+	int counter = 0;
+	String[][]file = readFile();
+	int cal = 0;
+	int pro = 0;
+	int carb = 0;
+	int fat = 0;
+	String total = "";
+        if (date2Greater(date2,date1)){
+		return "Error: first date cannot be greater than second";
+	    }
+	    while (counter < file.length){
+		if ((file[counter][0].equals(date1)) || (file[counter][0].equals(date2))){ //if either date equal
+		    try{
+			cal += Integer.parseInt(file[counter][3]);
+			pro += Integer.parseInt(file[counter][4]);
+			carb += Integer.parseInt(file[counter][5]);
+			fat += Integer.parseInt(file[counter][6].trim());
+		    }
+		    catch (NumberFormatException e){
+			e.printStackTrace();
+		    }
+		}
+		else if (date2Greater(file[counter][0],date2)){
+		    cal += Integer.parseInt(file[counter][3]);
+		    pro += Integer.parseInt(file[counter][4]);
+		    carb += Integer.parseInt(file[counter][5]);
+		    fat += Integer.parseInt(file[counter][6].trim());
+		}
+			counter++;
+	    }
+	    total += "Total for " + date1 + " to " + date2 + " is " + cal + " calories, " + pro + " grams of protein, " + carb + " grams of carbs, and " + fat + " grams of fat.";
+	    return total;
+    }
+	
+    public static boolean date2Greater(String date1, String date2){
+	if ((Integer.parseInt(date2.substring(0,2))) > (Integer.parseInt(date1.substring(0,2)))){
+	    return true;
+	}
+	else if ((date2.substring(0,2)).equals((date1.substring(0,2)))){
+	    if ((Integer.parseInt(date2.substring(3,5))) > (Integer.parseInt(date1.substring(3,5)))){
+		return true;
+	    }
+	}
+	return false;
     }
     
     public static String totalDate(String date) throws FileNotFoundException{
@@ -129,7 +182,7 @@ public class MealTracker{
 	String[][]file = readFile();
 	while (counter < file.length){
 	    if ((file[counter][0]).equals(date)){
-		total += Integer.parseInt(file[counter][6]);
+		total += Integer.parseInt(file[counter][6].trim());
 	    }
 	    counter++;
 	}
