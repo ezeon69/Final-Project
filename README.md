@@ -14,9 +14,11 @@ Unresolved bugs:
 
 How to compile/run: Compile it normally (javac MealTracker.java)
 
-How to use:
+How to use: 
 
 Usage: Compile MealTracker.java, then run java MealTracker.
+
+*DATES must be in mm/dd format with no year.
 
 For advanced users: java MealTracker [date][total] : displays totals for that date.
 
